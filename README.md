@@ -104,7 +104,7 @@ c. sound-manager.js
 - Plays background music continuously.
 - Plays the cannon-firing sound when a ball is launched.
 
-$${\color{red} The hit feedback isn't yet complemented because we culdn't figre it out how to present a red plane feedback on index.html}$$
+$${\color{red} The \space hit \space feedback \space isn't \space yet \space complemented \space because \space we \space couldn't \space figure \space out \space how \space to \space present \space a \space red \space plane \space feedback \space on \space index.html}$$
 
 *Key Interactions*
 
