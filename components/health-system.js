@@ -1,3 +1,6 @@
+// Chada Kengradomying 6481236
+// Kanokluk Supthamrong 6280563
+
 AFRAME.registerComponent('health-system', {
   schema: {
     health: { type: 'int', default: 3 }

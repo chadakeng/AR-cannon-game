@@ -1,4 +1,6 @@
-// sound-manager.js
+// Chada Kengradomying 6481236
+// Kanokluk Supthamrong 6280563
+
 AFRAME.registerComponent('sound-manager', {
   init: function () {
     this.fireSound = new Audio('./assets/cannon-fire.mp3');
@@ -44,3 +46,4 @@ AFRAME.registerComponent('sound-manager', {
     // this.activeSounds = [];
   }
 });
+
