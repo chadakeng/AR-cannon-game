@@ -104,9 +104,7 @@ c. sound-manager.js
 - Plays background music continuously.
 - Plays the cannon-firing sound when a ball is launched.
 
-<span style="color:red">
-The hit feedback aren't yet implemented as we couldn't figure it out how to make a red feedback 
-</span>
+$${\color{red} The hit feedback isn't yet complemented because we culdn't figre it out how to present a red plane feedback on index.html}$$
 
 *Key Interactions*
 
