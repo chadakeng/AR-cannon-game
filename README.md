@@ -126,5 +126,4 @@ c. Pausing
 - A "PAUSED" text is displayed.
 
 d. Game Over
-- If a player’s health reaches 0:
-- Their health text displays "You Won!" or "You Lost!" depending on the player.
+If a player’s health reaches 0, their health text displays "You Won!" or "You Lost!" depending on the player.
