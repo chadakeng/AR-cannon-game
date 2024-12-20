@@ -16,25 +16,6 @@ There are 3d cannon models which are the blue and the green one, including canno
 
 ### Components
 
-***Collision check***
-It is used to detect collisions between a cannon ball entity in a 3D scene whether it hits the enemy cannon or not
-
-The schema defines the configuration properties for this component:
-
-**targetSelector** : A CSS selector string (default is .target) to specify the targets to check for collisions.
-**threshold** : A numerical value (default is 0.5) representing the distance threshold to consider as a collision.
-
-The ***tick*** method is called on every frame (approx. 60 times per second). It handles the collision detection logic.
-The ***this.el*** refers to the entity that the component is attached to which is a cannon ball. While all entities matching the ***targetSelector*** are selected, and their positions in world space are calculated in distance between the ball and the target.
-
-If the calculated distance is less than or equal to the threshold, the following actions occur:
-1. **'hit' Event**: The target entity emits a custom event named hit, which can be used to trigger other actions like health deduction.
-2. **Hide the Ball** : The visible attribute of the ball entity is set to false, making it invisible while not firing phase.
-
-***Hit Feedback***
-
-This A-Frame component, named hit-feedback, is designed to provide visual feedback when an entity it is attached to receives a hit event which the entity this component is attached to is initially set to be invisible by setting its visible attribute to *false*. The Showing Feedback method when called, it sets the visible attribute to true, making the feedback element appear in the scene. Then, a *setTimeout* hide the entity after a delay of 1 second.
-
 ***Countdown Manager***
 
 This A-Frame component implements a countdown-driven game mechanic where two teams (Green and Blue) take turns firing cannon balls at targets.
@@ -66,6 +47,13 @@ c. Marker Event Listeners
 
 The component listens for *markerFound* and *markerLost* events from AR markers (greenMarker and blueMarker) to pause or resume the game.
 
+There is also a collision check. It is used to detect collisions between a cannon ball entity in a 3D scene whether it hits the enemy cannon or not
+
+If the calculated distance is less than or equal to the threshold, the following actions occur:
+1. **'hit' Event**: The target entity emits a custom event named hit, which can be used to trigger other actions like health deduction.
+2. **Hide the Ball** : The visible attribute of the ball entity is set to false, making it invisible while not firing phase.
+
+
 ***Health System***
 
 The *health-system* component tracks an entity's health, deducts health when the entity is "hit," and handles game-over scenarios when health reaches zero. It also provides visual feedback for health changes and game state.
@@ -95,15 +83,17 @@ The sound-manager component adds sound effects to enhance the user experience in
 This HTML file is creating an AR-based Cannon Game using A-Frame and AR.js. It combines visual elements, assets, and custom JavaScript components to build an interactive game where two players (green and blue) take turns firing cannonballs at each other. 
 
 *Dependencies*
-> A-Frame: A framework for building 3D/AR/VR experiences.
-> AR.js: Enables augmented reality features in the browser using markers and webcam input.
+    A-Frame: A framework for building 3D/AR/VR experiences.
+    AR.js: Enables augmented reality features in the browser using markers and webcam input.
 
 Two players (Green and Blue) interact with physical markers (barcodes) where each player has a cannon that fires balls at a target. Players can see a countdown timer before firing, fire a ball from their cannon, get hit feedback when the ball hits their target, track their health and see a game-over message when their health depletes.
 
 *Components in Use*
 
-a. hit-feedback.js
-- Displays a red plane when a target is hit for visual feedback.
+a. countdown-manager.js
+- Manages the turn-based countdown for the game.
+- Alternates turns between Green and Blue players.
+- Fires a ball when the countdown reaches 0.
 
 b. health-system.js
 - Tracks the health of each cannon (starts at 3).
@@ -114,10 +104,9 @@ c. sound-manager.js
 - Plays background music continuously.
 - Plays the cannon-firing sound when a ball is launched.
 
-d. countdown-manager.js
-- Manages the turn-based countdown for the game.
-- Alternates turns between Green and Blue players.
-- Fires a ball when the countdown reaches 0.
+<span style="color:red">
+The hit feedback aren't yet implemented as we couldn't figure it out how to make a red feedback 
+</span>
 
 *Key Interactions*
 
